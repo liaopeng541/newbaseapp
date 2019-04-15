@@ -2,6 +2,12 @@ package com.newbaseapp;
 
 import com.facebook.react.ReactActivity;
 
+/****此处为react navigation 添加的部分****/
+import com.facebook.react.ReactActivityDelegate;
+import com.facebook.react.ReactRootView;
+import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
+/****添加结束****/
+
 public class MainActivity extends ReactActivity {
 
     /**
@@ -12,4 +18,18 @@ public class MainActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "newbaseapp";
     }
+
+
+    /****此处为react navigation 添加的部分****/
+    @Override
+    protected ReactActivityDelegate createReactActivityDelegate() {
+        return new ReactActivityDelegate(this, getMainComponentName()) {
+            @Override
+            protected ReactRootView createRootView() {
+                return new RNGestureHandlerEnabledRootView(MainActivity.this);
+            }
+        };
+    }
+    /****添加结束****/
+
 }
